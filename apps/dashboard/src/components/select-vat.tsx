@@ -24,7 +24,7 @@ export function SelectVat({ id, selectedId, isLoading }) {
 
   return (
     <div className="relative">
-      <Label htmlFor="tax">Tax Rate</Label>
+      <Label htmlFor="tax">VAT</Label>
 
       <div className="mt-1">
         {isLoading ? (
