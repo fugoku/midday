@@ -30,7 +30,7 @@ export function DisplayName({ fullName }) {
     resolver: zodResolver(updateUserSchema),
     defaultValues: {
       full_name: fullName,
-      path: "/settings",
+      path: "/account",
     },
   });
 
