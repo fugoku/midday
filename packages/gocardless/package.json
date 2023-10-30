@@ -10,6 +10,9 @@
       "format": "biome --write .",
       "check:types": "tsc --noEmit"
     },
+    "dependencies": {
+      "@midday/kv": "workspace:*"
+    },
     "devDependencies": {
         "typescript": "^5.2.2"
     }
