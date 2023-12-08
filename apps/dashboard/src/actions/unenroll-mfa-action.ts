@@ -7,11 +7,11 @@ import { unenrollMfaSchema } from "./schema";
 
 export const unenrollMfaAction = action(
   unenrollMfaSchema,
-  async ({ factoryId }) => {
+  async ({ factorId }) => {
     const supabase = createClient();
 
     const { data, error } = await supabase.auth.mfa.unenroll({
-      factoryId,
+      factorId,
     });
 
     if (error) {
