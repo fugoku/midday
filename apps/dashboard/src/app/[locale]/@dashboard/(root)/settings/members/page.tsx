@@ -1,3 +1,4 @@
+import { TeamMembers } from "@/components/team-members";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,5 +6,9 @@ export const metadata: Metadata = {
 };
 
 export default async function Members() {
-  return <div className="space-y-12"></div>;
+  return (
+    <div className="space-y-12">
+      <TeamMembers />
+    </div>
+  );
 }
