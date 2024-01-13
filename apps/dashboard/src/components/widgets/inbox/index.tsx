@@ -11,7 +11,7 @@ export async function Inbox({ disabled }) {
   const filter = cookies().get(Cookies.InboxFilter)?.value ?? "all";
 
   return (
-    <div className="flex-1 border p-8 relative">
+    <div className="flex-1 border p-8 relative h-full">
       <InboxHeader filter={filter} disabled={disabled} />
 
       <div className="h-[350px]">

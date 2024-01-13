@@ -26,7 +26,7 @@ export function TransactionsPeriod({ type, disabled }) {
   return (
     <div className="flex justify-between">
       <div>
-        <h2 className="text-2xl">Transactions</h2>
+        <h2 className="text-lg">Transactions</h2>
       </div>
 
       <DropdownMenu>
