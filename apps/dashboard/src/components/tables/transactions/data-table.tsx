@@ -1,6 +1,6 @@
 "use client";
 
-import { TransactionSheet } from "@/components/sheets";
+import { TransactionSheet } from "@/components/sheets/transaction-sheet";
 import { createClient } from "@midday/supabase/client";
 import { Table, TableBody } from "@midday/ui/table";
 import { useQueryState } from "next-usequerystate";
