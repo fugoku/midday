@@ -70,7 +70,15 @@ export const WelcomeEmail = ({ fullName = "Viktor Hofte" }: OverviewProps) => {
               width="597"
               height="301"
               alt="Overview"
-              className="my-0 mx-auto"
+              className="my-0 mx-auto block dark:hidden"
+            />
+
+            <Img
+              src={`${baseUrl}/financial-overview-header-dark.png`}
+              width="597"
+              height="301"
+              alt="Overview"
+              className="my-0 mx-auto hidden dark:block"
             />
 
             <span className="font-medium">Hi {firstName},</span>
@@ -152,7 +160,11 @@ export const WelcomeEmail = ({ fullName = "Viktor Hofte" }: OverviewProps) => {
               </Row>
             </Section>
 
+            <br />
+
             <GetStarted />
+
+            <br />
 
             <Footer baseUrl={baseUrl} />
           </Container>
