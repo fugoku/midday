@@ -33,7 +33,7 @@ export class TellerProvider implements Provider {
     );
   }
 
-  async getAccounts({ accessToken, accountId }: GetAccountsRequest) {
+  async getAccounts({ accessToken }: GetAccountsRequest) {
     if (!accessToken) {
       throw Error("accessToken missing");
     }
@@ -42,9 +42,9 @@ export class TellerProvider implements Provider {
 
     return response.map((account) =>
       transformAccount({
+        id: account.id,
         name: account.name,
         currency: account.currency,
-        accountId: accountId,
         enrolmentId: account.enrollment_id,
         institution: account.institution,
       })
