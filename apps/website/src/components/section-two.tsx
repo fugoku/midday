@@ -1,3 +1,3 @@
 export function SectionTwo() {
-  return <section></section>;
+  return <section className="h-[450px]"></section>;
 }
