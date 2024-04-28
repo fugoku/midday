@@ -2,7 +2,7 @@
 
 import { InboxDetailsSkeleton } from "./inbox-details-skeleton";
 import { InboxHeader } from "./inbox-header";
-import { InboxSkeleton } from "./inbox-list";
+import { InboxListSkeleton } from "./inbox-list-skeleton";
 import { InboxStructure } from "./inbox-structure";
 
 type Props = {
@@ -19,7 +19,7 @@ export function InboxViewSkeleton({ forwardEmail, inboxId }: Props) {
             forwardEmail={forwardEmail ?? ""}
             inboxId={inboxId ?? ""}
           />
-          <InboxSkeleton numberOfItems={12} />
+          <InboxListSkeleton numberOfItems={12} />
         </>
       }
       rightColumn={<InboxDetailsSkeleton />}
