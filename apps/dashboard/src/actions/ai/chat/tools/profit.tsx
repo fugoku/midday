@@ -1,6 +1,7 @@
 import type { MutableAIState } from "@/actions/ai/types";
 import { getMetrics } from "@midday/supabase/cached-queries";
 import { nanoid } from "ai";
+import { startOfMonth } from "date-fns";
 import { z } from "zod";
 import { ProfitUI } from "./ui/profit-ui";
 
@@ -32,8 +33,8 @@ export function getProfitTool({ aiState, currency, dateFrom, dateTo }: Args) {
       const { currency, startDate, endDate } = args;
 
       const data = await getMetrics({
-        from: startDate,
-        to: endDate,
+        from: startOfMonth(new Date(startDate)).toISOString(),
+        to: new Date(endDate).toISOString(),
         type: "profit",
         currency,
       });
@@ -42,8 +43,8 @@ export function getProfitTool({ aiState, currency, dateFrom, dateTo }: Args) {
 
       const props = {
         data,
-        startDate,
-        endDate,
+        startDate: startOfMonth(new Date(startDate)).toISOString(),
+        endDate: new Date(endDate).toISOString(),
         currency,
       };
 
