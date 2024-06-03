@@ -2,6 +2,7 @@ import type { MutableAIState } from "@/actions/ai/types";
 import { calculateAvgBurnRate } from "@/utils/format";
 import { getBurnRate, getRunway } from "@midday/supabase/cached-queries";
 import { nanoid } from "ai";
+import { startOfMonth } from "date-fns";
 import { z } from "zod";
 import { BurnRateUI } from "./ui/burn-rate-ui";
 
@@ -37,13 +38,13 @@ export function getBurnRateTool({ aiState, currency, dateFrom, dateTo }: Args) {
       const [{ data: months }, { data: burnRateData }] = await Promise.all([
         getRunway({
           currency,
-          from: startDate.toString(),
-          to: endDate.toString(),
+          from: startOfMonth(new Date(startDate)).toISOString(),
+          to: endDate.toISOString(),
         }),
         getBurnRate({
           currency,
-          from: startDate.toString(),
-          to: endDate.toString(),
+          from: startDate.toISOString(),
+          to: endDate.toISOString(),
         }),
       ]);
 

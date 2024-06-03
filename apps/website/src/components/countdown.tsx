@@ -93,7 +93,7 @@ export function Countdown() {
             <div className="relative h-2.5 w-2.5 sm:h-3 sm:w-3 -right-[6px]" />
           </div>
           <span className="text-sm text-center capitalize font-medium">
-            {countDownTime?.minutes === 1 ? "Minute" : "Minutes"}
+            {countDownTime?.minutes === 1 ? "Minute" : "Min"}
           </span>
         </div>
         <div className="flex flex-col relative">
@@ -105,7 +105,7 @@ export function Countdown() {
             <div className="relative h-2.5 w-2.5 sm:h-3 sm:w-3 -right-[6px] font-medium" />
           </div>
           <span className="text-sm text-center capitalize font-medium">
-            {countDownTime?.seconds === 1 ? "Second" : "Seconds"}
+            {countDownTime?.seconds === 1 ? "Second" : "Sec"}
           </span>
         </div>
       </div>
