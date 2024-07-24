@@ -30,13 +30,13 @@ export const createGoCardLessLinkAction = authActionClient
 
       const { data: agreementData } =
         await engine.auth.gocardless.agreement.create({
-          institution_id: institutionId,
+          institutionId,
           transactionTotalDays: availableHistory,
         });
 
       const { data } = await engine.auth.gocardless.link({
         agreement: agreementData.id,
-        institution_id: institutionId,
+        institutionId,
         redirect: redirectTo.toString(),
       });
 
