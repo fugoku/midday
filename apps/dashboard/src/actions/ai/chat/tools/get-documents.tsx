@@ -1,5 +1,5 @@
 import type { MutableAIState } from "@/actions/ai/types";
-import { getInboxSearchQuery } from "@midday/supabase/queries";
+import { getVaultQuery } from "@midday/supabase/queries";
 import { createClient } from "@midday/supabase/server";
 import { nanoid } from "nanoid";
 import { z } from "zod";
@@ -12,23 +12,28 @@ type Args = {
 
 export function getDocumentsTool({ aiState, teamId }: Args) {
   return {
-    description: "Find reciept or invoice",
+    description: "Find documents",
     parameters: z.object({
-      name: z.string().describe("The name of the invoice or reciept"),
+      name: z.string().describe("The name of the document"),
     }),
     generate: async (args) => {
-      const { name, amount } = args;
+      const { name } = args;
       const supabase = createClient();
 
-      const searchQuery = name || amount;
-
-      const data = await getInboxSearchQuery(supabase, {
+      const { data } = await getVaultQuery(supabase, {
         teamId,
-        q: searchQuery,
+        searchQuery: name,
       });
 
+      const formattedData = data?.map((item) => ({
+        ...item,
+        content_type: item?.metadata?.mimetype,
+        display_name: item?.name,
+        file_path: item?.path_tokens,
+      }));
+
       const props = {
-        data,
+        data: formattedData,
       };
 
       const toolCallId = nanoid();
