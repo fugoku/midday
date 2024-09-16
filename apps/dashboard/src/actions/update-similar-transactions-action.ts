@@ -1,17 +1,17 @@
 "use server";
 
-import { updateSimilarTransactions } from "@midday/supabase/mutations";
+import { updateSimilarTransactionsCategory } from "@midday/supabase/mutations";
 import { revalidateTag } from "next/cache";
 import { authActionClient } from "./safe-action";
-import { updateSimilarTransactionsSchema } from "./schema";
+import { updateSimilarTransactionsCategorySchema } from "./schema";
 
-export const updateSimilarTransactionsAction = authActionClient
-  .schema(updateSimilarTransactionsSchema)
+export const updateSimilarTransactionsCategoryAction = authActionClient
+  .schema(updateSimilarTransactionsCategorySchema)
   .metadata({
-    name: "update-similar-transactions",
+    name: "update-similar-transactions-category",
   })
   .action(async ({ parsedInput: { id }, ctx: { user, supabase } }) => {
-    await updateSimilarTransactions(supabase, {
+    await updateSimilarTransactionsCategory(supabase, {
       team_id: user.team_id,
       id,
     });
