@@ -41,6 +41,7 @@ export function TrackerWidget({ date: initialDate, meta, data }: Props) {
     setParams,
     selectedDate,
   } = useTrackerParams(initialDate);
+
   const monthStart = startOfMonth(currentDate);
   const monthEnd = endOfMonth(currentDate);
   const calendarStart = startOfWeek(monthStart, { weekStartsOn: 1 });
@@ -98,6 +99,7 @@ export function TrackerWidget({ date: initialDate, meta, data }: Props) {
           {calendarDays.map((date, index) => {
             const isCurrentMonth =
               new Date(date).getMonth() === new Date(currentDate).getMonth();
+
             return (
               <button
                 type="button"
