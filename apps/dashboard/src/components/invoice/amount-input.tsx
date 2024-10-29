@@ -11,6 +11,7 @@ export function AmountInput({
 }: Omit<NumericFormatProps, "value" | "onChange"> & {
   name: string;
 }) {
+  const [isFocused, setIsFocused] = useState(false);
   const { control } = useFormContext();
   const {
     field: { value, onChange, onBlur },
@@ -19,10 +20,8 @@ export function AmountInput({
     control,
   });
 
-  const [isFocused, setIsFocused] = useState(false);
-
   return (
-    <div className="relative">
+    <div className="relative font-mono">
       <CurrencyInput
         autoComplete="off"
         value={value}
@@ -37,11 +36,12 @@ export function AmountInput({
         {...props}
         className={cn(
           className,
-          "p-0 border-0 h-6 text-xs !bg-transparent border-b border-transparent focus:border-border font-mono",
+          "p-0 border-0 h-6 text-xs !bg-transparent border-b border-transparent focus:border-border",
         )}
         thousandSeparator={true}
         allowNegative={false}
       />
+
       {!value && !isFocused && (
         <div className="absolute inset-0 pointer-events-none">
           <div className="h-full w-full bg-[repeating-linear-gradient(-60deg,#DBDBDB,#DBDBDB_1px,background_1px,background_5px)] dark:bg-[repeating-linear-gradient(-60deg,#2C2C2C,#2C2C2C_1px,background_1px,background_5px)]" />
