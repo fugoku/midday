@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "NODE_ENV=production next build",
+    "build": "node init && NODE_ENV=production next build",
     "clean": "git clean -xdf .next .turbo node_modules",
     "jobs": "bunx @trigger.dev/cli@v2 dev -p 3001 --client-id=midday-G6Yq",
     "jobs:v3": "npx trigger.dev@3.2.1 dev",
     "jobs:deploy": "npx trigger.dev@3.2.1 deploy",
-    "dev": "TZ=UTC next dev -p 3001",
+    "dev": "node init && TZ=UTC next dev -p 3001",
     "lint": "next lint",
     "format": "biome format --write .",
-    "start": "next start",
+    "start": "node init && next start",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

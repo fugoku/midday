@@ -8,9 +8,9 @@
     "lint": "biome check .",
     "format": "biome format --write .",
     "typecheck": "tsc --noEmit",
-    "dev": "email dev -p 3003",
-    "build": "email build",
-    "start": "email start"
+    "dev": "node init && email dev -p 3003",
+    "build": "node init && email build",
+    "start": "node init && email start"
   },
   "dependencies": {
     "@midday/ui": "workspace:*",
