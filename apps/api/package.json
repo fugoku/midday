@@ -2,7 +2,7 @@
   "name": "@midday/api",
   "private": true,
   "scripts": {
-    "dev": "supabase start",
+    "dev": "node init && supabase start",
     "login": "supabase login",
     "db:reset": ""
   },
